@@ -1,0 +1,14 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/BussinessCard/bin
+/BussinessCard/obj/Debug
+/BussinessCard.Web/bin
+/BussinessCard.Web/obj/Debug
+/BussinessCard.Web.Tests/bin/Debug
+/BussinessCard.Web.Tests/obj/Debug
+/BussinessCard.WebAPI/bin
+/BussinessCard.WebAPI/obj/Debug
+/BussinessCard.WebAPI.Tests/bin/Debug
+/BussinessCard.WebAPI.Tests/obj/Debug
