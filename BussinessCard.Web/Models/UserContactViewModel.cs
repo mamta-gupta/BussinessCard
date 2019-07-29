@@ -20,5 +20,6 @@ namespace BussinessCard.Web.Models
         public string PositionName { get; set; }
         public int PostionId { get; set; }
         public int AddressId { get; set; }
+        public List<AddressViewModel> Address { get; set;}
     }
 }

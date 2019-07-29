@@ -4,11 +4,12 @@
 
 <link href="~/Content/themes/base/jquery-ui.css" rel="stylesheet" />
 <link href="~/Content/jquery.jqGrid/ui.jqgrid.css" rel="stylesheet" />
+<link href="~/Content/simplePagination.css" rel="stylesheet" />
 <script src="~/Scripts/jquery-1.10.2.min.js"></script>
 <script src="~/Scripts/jquery-ui-1.10.0.js"></script>
 <script src="~/Scripts/i18n/grid.locale-en.js"></script>
 <script src="~/Scripts/jquery.jqGrid.min.js"></script>
-
+<script src="~/Scripts/jquery.simplePagination.js"></script>
 @*@Styles.Render("~/Content/jqGridCss")
 
 @Scripts.Render("~/bundles/jquery")
@@ -42,7 +43,7 @@
             <tbody>
             </tbody>
         </table>
-        <div id="businessCardJqGridPager">
+        <div id="businessCardPager">
         </div>
     </div>
 </div>
@@ -80,11 +81,23 @@
             positionName: "Manager"
         }
         ];
+
+        var count = 10
+        var page = 1;
+        rows = 10;
+        sort = 'asc';
         
         var actionButtions = "</span><span class='ui-icon ui-icon-trash iconAllignment' title='Delete' onclick='Delete(itemId)'></span><span class='ui-icon ui-icon-pencil iconAllignment' title='Edit' onclick='Edit(itemId)'></span><span class='ui-icon ui-icon-newwin iconAllignment' title='View' onclick='View(itemId)'>"
         var tableId = $("#tblBusinessCardDetails tbody")
         result.forEach(function (item, index) {
             tableId.append("<tr><td>" + item.fullName + "</td><td>" + item.mobileNumber + "</td><td>" + item.emailId + "</td><td>" + item.organisationName + "</td><td>" + item.positionName + "</td><td>" + actionButtions.replace(/\itemId/g, item.id) + "</td></tr>")
+        });
+
+        $("#businessCardPager").pagination({
+            items: 20,
+            itemsOnPage: 3,
+            cssStyle: 'light-theme'//,
+            //displayedPages: 5
         });
 
     }

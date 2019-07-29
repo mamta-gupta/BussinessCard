@@ -70,5 +70,10 @@ namespace BussinessCard.Web.Controllers
             };
             return Json(jsonData, JsonRequestBehavior.AllowGet);
         }
+
+        public ActionResult Create()
+        {
+            return View();
+        }
     }
 }
