@@ -22,3 +22,9 @@ select,
 textarea {
     max-width: 280px;
 }
+
+.iconAllignment{
+    float :right;
+    width:16px;
+    height:16px;
+}

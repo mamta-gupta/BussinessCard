@@ -9,6 +9,10 @@ namespace BussinessCard.Web.Controllers
 {
     public class BussinessCardController : Controller
     {
+        public ActionResult Index()
+        {
+            return View();
+        }
         // GET: BussinessCard
         public JsonResult GetContacts(string sort, int page, int rows, string searchString)
         {
@@ -41,18 +45,20 @@ namespace BussinessCard.Web.Controllers
             //#5 Setting Sorting  
             if (sort.ToUpper() == "DESC")
             {
-                //results.ContactDetails = results.ContactDetails.OrderByDescending(s => s.Id);
-               // results.ContactDetails = results.ContactDetails.Skip(pageIndex * pageSize).Take(pageSize);
+                results.ContactDetails = results.ContactDetails.OrderByDescending(s => s.Id).ToList();
+                results.ContactDetails = results.ContactDetails.Skip(pageIndex * pageSize).Take(pageSize).ToList();
             }
             else
             {
-                Results = Results.OrderBy(s => s.CustomerID);
-                Results = Results.Skip(pageIndex * pageSize).Take(pageSize);
+                results.ContactDetails = results.ContactDetails.OrderBy(s => s.Id).ToList();
+                results.ContactDetails = results.ContactDetails.Skip(pageIndex * pageSize)
+                    .Take(pageSize)
+                    .ToList();
             }
             //#6 Setting Search  
             if (!string.IsNullOrEmpty(searchString))
             {
-                Results = Results.Where(m => m.Country == searchString);
+                results.ContactDetails = results.ContactDetails.Where(m => m.AlternateMobileNumber == searchString).ToList();
             }
             //#7 Sending Json Object to View.  
             var jsonData = new
@@ -60,7 +66,7 @@ namespace BussinessCard.Web.Controllers
                 total = totalPages,
                 page,
                 records = totalRecords,
-                rows = Results
+                rows = results
             };
             return Json(jsonData, JsonRequestBehavior.AllowGet);
         }

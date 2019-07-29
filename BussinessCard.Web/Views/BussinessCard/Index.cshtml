@@ -1,0 +1,103 @@
+﻿@{
+    ViewBag.Title = "Contact US";
+}
+
+<link href="~/Content/themes/base/jquery-ui.css" rel="stylesheet" />
+<link href="~/Content/jquery.jqGrid/ui.jqgrid.css" rel="stylesheet" />
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+<script src="~/Scripts/jquery-ui-1.10.0.js"></script>
+<script src="~/Scripts/i18n/grid.locale-en.js"></script>
+<script src="~/Scripts/jquery.jqGrid.min.js"></script>
+
+@*@Styles.Render("~/Content/jqGridCss")
+
+@Scripts.Render("~/bundles/jquery")
+@Scripts.Render("~/bundles/jqGrid")*@
+
+
+<div class="row">
+
+    @*<h1>ASP.NET</h1>
+        <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS and JavaScript.</p>
+        <p><a href="http://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>*@
+    <div class="col-lg-12">
+        <br />
+       <p style="text-align:right;"><button class="btn btn-primary btn-default">Add</button></p>
+    </div>
+
+
+    <div class="col-md-12" >
+        <table id="tblBusinessCardDetails" class="table table-bordered table-striped">
+            <thead>
+                <tr>
+                    <td>Name</td>
+                    <td>MobileNumber</td>
+                    <td>EmailId</td>
+                    <td>OrganisationName</td>
+                    <td>Postion</td>
+                    <td style="text-align:right;">Actions</td>
+                </tr>
+                
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+        <div id="businessCardJqGridPager">
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        LoadContactDetails();
+    });
+
+    function LoadContactDetails()
+    {
+        var result = [
+            {
+                id: "20",
+                fullName: "ABC XYZ",
+                mobileNumber: "9876543210",
+                emailId: "9876543210",
+                organisationName: "GlobalLogic",
+                positionName: "Manager"
+            },
+        {
+            id: "21",
+            fullName: "ABC XYZ",
+            mobileNumber: "9876543210",
+            emailId: "9876543210",
+            organisationName: "GlobalLogic",
+            positionName: "Manager"
+        },
+        {
+            id: "22",
+            fullName: "ABC XYZ",
+            mobileNumber: "9876543210",
+            emailId: "9876543210",
+            organisationName: "GlobalLogic",
+            positionName: "Manager"
+        }
+        ];
+        
+        var actionButtions = "</span><span class='ui-icon ui-icon-trash iconAllignment' title='Delete' onclick='Delete(itemId)'></span><span class='ui-icon ui-icon-pencil iconAllignment' title='Edit' onclick='Edit(itemId)'></span><span class='ui-icon ui-icon-newwin iconAllignment' title='View' onclick='View(itemId)'>"
+        var tableId = $("#tblBusinessCardDetails tbody")
+        result.forEach(function (item, index) {
+            tableId.append("<tr><td>" + item.fullName + "</td><td>" + item.mobileNumber + "</td><td>" + item.emailId + "</td><td>" + item.organisationName + "</td><td>" + item.positionName + "</td><td>" + actionButtions.replace(/\itemId/g, item.id) + "</td></tr>")
+        });
+
+    }
+
+    function View(id) {
+        alert("View" + id);
+    }
+
+    function Edit(id) {
+        alert("Edit" + id);
+    }
+
+    function Delete(id) {
+        alert("Delete" + id);
+    }
+</script>
