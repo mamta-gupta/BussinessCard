@@ -225,6 +225,8 @@
     <Content Include="Content\jquery.jqGrid\ui.jqgrid.css" />
     <Content Include="Content\simplePagination.css" />
     <Content Include="Content\themes\base\images\animated-overlay.gif" />
+    <Content Include="Content\themes\base\images\minus.png" />
+    <Content Include="Content\themes\base\images\plus.png" />
     <Content Include="Content\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
     <Content Include="Content\themes\base\images\ui-bg_flat_75_ffffff_40x100.png" />
     <Content Include="Content\themes\base\images\ui-bg_glass_55_fbf9ee_1x400.png" />
@@ -394,6 +396,7 @@
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\BussinessCard\Index.cshtml" />
     <Content Include="Views\BussinessCard\Create.cshtml" />
+    <Content Include="Views\BussinessCard\ContactDetail.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

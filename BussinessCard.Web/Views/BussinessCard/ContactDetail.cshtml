@@ -75,7 +75,7 @@
                     id: "20",
                     fullName: "ABC XYZ",
                     mobileNumber: "9876543210",
-                    emailId: "test3@gmail.com",
+                    emailId: "9876543210",
                     organisationName: "GlobalLogic",
                     positionName: "Manager"
                 },
@@ -83,7 +83,7 @@
                 id: "21",
                 fullName: "ABC XYZ",
                 mobileNumber: "9876543210",
-                emailId: "test2@gmail.com",
+                emailId: "9876543210",
                 organisationName: "GlobalLogic",
                 positionName: "Manager"
             },
@@ -91,7 +91,7 @@
                 id: "22",
                 fullName: "ABC XYZ",
                 mobileNumber: "9876543210",
-                emailId: "test1@gmail.com",
+                emailId: "9876543210",
                 organisationName: "GlobalLogic",
                 positionName: "Manager"
             }
@@ -102,7 +102,7 @@
             rows = 10;
             sort = 'asc';
 
-            var actionButtions = "<span class='ui-icon ui-icon-trash iconAllignment' title='Delete' onclick='Delete(itemId)'></span><a href='/bussinesscard/GetContactDetail/itemId'><span class='ui-icon ui-icon-pencil iconAllignment' title='Edit'></span></a><span class='ui-icon ui-icon-newwin iconAllignment' title='View' onclick='View(itemId)'>"
+            var actionButtions = "<span class='ui-icon ui-icon-trash iconAllignment' title='Delete' onclick='Delete(itemId)'></span><span class='ui-icon ui-icon-pencil iconAllignment' title='Edit' onclick='Edit(itemId)'></span><span class='ui-icon ui-icon-newwin iconAllignment' title='View' onclick='View(itemId)'>"
             var tableId = $("#tblBusinessCardDetails tbody")
             result.forEach(function (item, index) {
                 tableId.append("<tr><td>" + item.fullName + "</td><td>" + item.mobileNumber + "</td><td>" + item.emailId + "</td><td>" + item.organisationName + "</td><td>" + item.positionName + "</td><td>" + actionButtions.replace(/\itemId/g, item.id) + "</td></tr>")
@@ -130,18 +130,18 @@
         }
 
         $("#delete").click(function () {
-            //alert("Deleted");
+            alert("Deleted");
             $("#myModal").hide();
         });
 
         $("#cancel").click(function () {
-            //alert("hide");
+            alert("hide");
             $("#myModal").hide();
         });
 
 
         $(".close").click(function () {
-            //alert("hide");
+            alert("hide");
             $("#myModal").hide();
         });
 

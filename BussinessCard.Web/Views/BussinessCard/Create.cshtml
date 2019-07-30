@@ -3,11 +3,12 @@
 @{
     ViewBag.Title = "Create";
 }
-
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+<script src="~/Scripts/jquery-ui-1.10.0.js"></script>
 <h2>Contact Us</h2>
-
+<hr />
 <form>
-    
+    <div class="container">
         <div class="form-group row">
             <div class="col-sm-4">
                 <label for="firstName">First Name</label>
@@ -16,39 +17,122 @@
                 <input type="text" class="form-control" id="firstName" name="firstName" maxlength="150" />
             </div>
         </div>
-    <div class="form-group row">
-        <div class="col-sm-4">
-            <label for="lastName">Last Name</label>
+        <div class="form-group row">
+            <div class="col-sm-4">
+                <label for="lastName">Last Name</label>
+            </div>
+            <div class="col-sm-8">
+                <input type="text" class="form-control" id="lastName" name="lastName" maxlength="150" />
+            </div>
         </div>
-        <div class="col-sm-8">
-            <input type="text" class="form-control" id="lastName" name="lastName" maxlength="150" />
-        </div>
-     </div>
         <div class="form-group row">
             <div class="col-sm-4"><label>Email Id</label></div>
             <div class="col-sm-8"><input type="text" class="form-control" id="emailId" name="emailId" maxlength="200" /></div>
         </div>
-    <div class="form-group row">
-        <div class="col-sm-4"><label>Mobile Number</label></div>
-        <div class="col-sm-8"><input type="text" class="form-control" id="mobileNumber" name="mobileNumber" maxlength="10" /></div>
-    </div>
-    <div class="form-group row">
-        <div class="col-sm-4"><label>Alternate Number</label></div>
-        <div class="col-sm-8"><input type="text" class="form-control" id="alternateNumber" name="alternateNumber" maxlength="14" /></div>
-    </div>
-    <div class="form-group row">
-        <div class="col-sm-4"><label>Organisation Name</label></div>
-        <div class="col-sm-8">
-            <select id="organisationName" name="organisationName" class="form-control"></select>
+        <div class="form-group row">
+            <div class="col-sm-4"><label>Mobile Number</label></div>
+            <div class="col-sm-8"><input type="text" class="form-control" id="mobileNumber" name="mobileNumber" maxlength="10" /></div>
+        </div>
+        <div class="form-group row">
+            <div class="col-sm-4"><label>Alternate Number</label></div>
+            <div class="col-sm-8"><input type="text" class="form-control" id="alternateNumber" name="alternateNumber" maxlength="14" /></div>
+        </div>
+        <div class="form-group row">
+            <div class="col-sm-4"><label>Organisation Name</label></div>
+            <div class="col-sm-8">
+                <select id="organisationName" name="organisationName" class="form-control"></select>
+            </div>
+        </div>
+        <div class="form-group row">
+            <div class="col-sm-4"><label>Postion Name</label></div>
+            <div class="col-sm-8">
+                <select id="postionName" name="postionName" class="form-control"></select>
+            </div>
         </div>
     </div>
-    <div class="form-group row">
-        <div class="col-sm-4"><label>Postion Name</label></div>
-        <div class="col-sm-8">
-            <select id="postionName" name="postionName" class="form-control"></select>
-        </div>
-    </div>
+    <div>
+        <div class="container">
+            <h4 class="float-left">Address Details</h4>
 
+            <span title="Add new address" class="plus-icon">
+
+                <img src="~/Content/themes/base/images/plus.png" height="20px" width="20px" />
+            </span>
+
+        </div>
+        <div class="multi-fields-wrapper container">
+            <div class="multi-fields">
+                <div class="multi-address-field">
+                    <div class="container">
+                        <span title="Delete address" class="minus-icon">
+
+                            <img src="~/Content/themes/base/images/minus.png" height="20px" width="20px" />
+                        </span>
+                    </div>
+
+                    <div class="form-group row">
+                        <div class="col-sm-4"><label>Address Type</label></div>
+                        <div class="col-sm-8">
+                            <select id="addressType" name="addressType" class="form-control">
+                                <option value="0" selected>Select</option>
+                                <option value="1" >Home</option>
+                                <option value="2" >Office</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-sm-4"><label>Country</label></div>
+                        <div class="col-sm-8">
+                            <select id="country" name="country" class="form-control">
+                                <option value="0" selected>Select</option>
+                                <option value="1" >India</option>
+                                <option value="2" >US</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-sm-4"><label>State</label></div>
+                        <div class="col-sm-8">
+                            <select id="state" name="state" class="form-control">
+                                <option value="0" selected>Select</option>
+                                <option value="1" >Delhi</option>
+                                <option value="2" >UP</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-sm-4"><label>Address</label></div>
+                        <div class="col-sm-8">
+                            <textarea id="address" name="address" maxlength="500" class="form-control"></textarea>
+                        </div>
+                    </div>
+                </div>
+               
+            </div>
+            <br />
+        </div>
+        </div>
    
-
+    <div class="form-group row">
+        
+        <div class="col-sm-12">
+            <button type="submit" class="btn btn-primary" id="btnSubmit">Submit</button>
+            <button type="reset" class="btn btn-default">Reset</button>
+            <a  class="btn btn-default" href="/bussinesscard/Index">Cancel</a>
+        </div>
+    </div>
 </form>
+
+<script type="text/javascript">
+
+    $(".plus-icon").click(function () {
+        $(".multi-address-field:first-child").clone(true).insertBefore(".multi-address-field:last-child");
+        return false;
+    });
+
+    $(".minus-icon").click(function () {
+        if ($(".minus-icon").length > 1) {
+            $(this).parent().parent().remove();
+        }
+    });
+</script>

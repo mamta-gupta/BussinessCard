@@ -75,5 +75,22 @@ namespace BussinessCard.Web.Controllers
         {
             return View();
         }
+
+        public ActionResult GetContactDetail(int id)
+        {
+            List<AddressViewModel> address = new List<AddressViewModel>();
+            address.Add(new AddressViewModel() { Street = "Text" });
+            UserContactViewModel contactDetail = new UserContactViewModel()
+            {
+                Id = 1,
+                FirstName = "ABC",
+                LastName = "XYZ",
+                EmailId = "test@gmail.com",
+                MobileNumber = "9777723232",
+                Address = address
+            };
+
+            return View("ContactDetail");
+        }
     }
 }
